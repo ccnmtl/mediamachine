@@ -12,6 +12,7 @@ urlpatterns = patterns('',
                        # Example:
                        # (r'^mediamachine/', include('mediamachine.foo.urls')),
                        ('^accounts/',include('djangowind.urls')),
+                       ('^$','django.views.generic.simple.redirect_to', {'url': '/databrowse/'}),
                        (r'^databrowse/(.*)', databrowse.site.root),
                        (r'^admin/(.*)', admin.site.root),
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': site_media_root}),
