@@ -1,0 +1,72 @@
+
+Column                         Type      Type
+name                           schema    name               Length   Scale Nulls
+------------------------------ --------- ------------------ -------- ----- -----
+KEYWORD_ID                     SYSIBM    INTEGER                   4     0 No    
+RECORDNUMBER                   SYSIBM    INTEGER                   4     0 No    
+KEYWORD                        SYSIBM    VARCHAR                 200     0 Yes   
+
+  3 record(s) selected.
+
+
+Column                         Type      Type
+name                           schema    name               Length   Scale Nulls
+------------------------------ --------- ------------------ -------- ----- -----
+LOGMEIN_ID                     SYSIBM    INTEGER                   4     0 No    
+LOGINNAME                      SYSIBM    VARCHAR                  50     0 No    
+SECRETPASSWORD                 SYSIBM    VARCHAR                  50     0 No    
+POWERLEVEL                     SYSIBM    VARCHAR                 150     0 Yes   
+DESCRIPTION                    SYSIBM    VARCHAR                 200     0 Yes   
+
+  5 record(s) selected.
+
+
+Column                         Type      Type
+name                           schema    name               Length   Scale Nulls
+------------------------------ --------- ------------------ -------- ----- -----
+RECORDID                       SYSIBM    INTEGER                   4     0 No    
+TITLE                          SYSIBM    VARCHAR                 200     0 Yes   
+SCENE                          SYSIBM    VARCHAR                 200     0 Yes   
+AUTHOR                         SYSIBM    VARCHAR                 100     0 Yes   
+COPYRIGHTHOLDER                SYSIBM    VARCHAR                 300     0 Yes   
+COPYRIGHTDATE                  SYSIBM    INTEGER                   4     0 Yes   
+CREATED                        SYSIBM    DATE                      4     0 Yes   
+MODIFIED                       SYSIBM    DATE                      4     0 Yes   
+FULL_TEXT                      SYSIBM    VARCHAR                 200     0 Yes   
+QUESTIONS                      SYSIBM    VARCHAR                 200     0 Yes   
+COMMENTARY                     SYSIBM    VARCHAR                 200     0 Yes   
+PLOT                           SYSIBM    VARCHAR                 400     0 Yes   
+SCREENPLAY                     SYSIBM    VARCHAR                 200     0 Yes   
+IMAGE_URL                      SYSIBM    VARCHAR                 100     0 Yes   
+REAL_VIDEO_URL                 SYSIBM    VARCHAR                 100     0 Yes   
+SEQUENCE_URL                   SYSIBM    VARCHAR                 100     0 Yes   
+LOCAL_VIDEO                    SYSIBM    CHARACTER                 3     0 Yes   
+REAL_VIDEO_FILENAME            SYSIBM    VARCHAR                 200     0 Yes   
+LOCAL_IMAGE                    SYSIBM    CHARACTER                 3     0 Yes   
+IMAGE_FILENAME                 SYSIBM    VARCHAR                 200     0 Yes   
+SEQUENCE_PREFIX                SYSIBM    VARCHAR                  60     0 Yes   
+SEQUENCE_COUNT                 SYSIBM    INTEGER                   4     0 Yes   
+
+  22 record(s) selected.
+
+
+Column                         Type      Type
+name                           schema    name               Length   Scale Nulls
+------------------------------ --------- ------------------ -------- ----- -----
+RESOURCE_ID                    SYSIBM    INTEGER                   4     0 No    
+RECORDNUMBER                   SYSIBM    INTEGER                   4     0 Yes   
+RESOURCE                       SYSIBM    VARCHAR                 200     0 Yes   
+DESCRIPTION                    SYSIBM    VARCHAR                 400     0 Yes   
+
+  4 record(s) selected.
+
+
+Column                         Type      Type
+name                           schema    name               Length   Scale Nulls
+------------------------------ --------- ------------------ -------- ----- -----
+THEME_ID                       SYSIBM    INTEGER                   4     0 No    
+RECORDNUMBER                   SYSIBM    INTEGER                   4     0 Yes   
+THEME                          SYSIBM    VARCHAR                 200     0 Yes   
+
+  3 record(s) selected.
+
