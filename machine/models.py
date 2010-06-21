@@ -35,7 +35,7 @@ class Video(models.Model):
     screenplay = models.TextField(default="",blank=True,null=True)
     image_url = models.URLField(default='http://www.columbia.edu/itc/tc/cstudies/imagesequence/',blank=True,null=True)
     real_video_url = models.URLField(default='http://kola.cc.columbia.edu:8080/ramgen/itcmedia/tc/culturalstudies/',blank=True,null=True)
-    sequence_url = models.URLField('http://www.columbia.edu/itc/tc/cstudies/imagesequence/',blank=True,null=True)
+    sequence_url = models.URLField(default='http://www.columbia.edu/itc/tc/cstudies/imagesequence/',blank=True,null=True)
     local_video = models.BooleanField(default=False)
     real_video_filename = models.CharField(max_length=200,default="",blank=True,null=True)
     local_image = models.BooleanField(default=False)
