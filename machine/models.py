@@ -8,6 +8,10 @@ class Resource(models.Model):
     def __unicode__(self):
         return self.resource
 
+    def get_absolute_url(self):
+        return "/resource/%d/" % self.id
+
+
 class Theme(models.Model):
     theme = models.CharField(max_length=200,default="",blank=True,null=True)
 
@@ -17,6 +21,10 @@ class Theme(models.Model):
     def __unicode__(self):
         return self.theme
 
+    def get_absolute_url(self):
+        return "/theme/%d/" % self.id
+
+
 class Keyword(models.Model):
     keyword = models.CharField(max_length=200,default="",blank=True,null=True)
 
@@ -25,6 +33,10 @@ class Keyword(models.Model):
 
     def __unicode__(self):
         return self.keyword
+
+    def get_absolute_url(self):
+        return "/keyword/%d/" % self.id
+
 
 class Video(models.Model):
     title = models.CharField(max_length=200,default="",blank=True,null=True)
@@ -62,7 +74,13 @@ class Video(models.Model):
         else:
             return self.title
 
-    
+    def images(self):
+        for i in range(1,self.sequence_count):
+            yield self.sequence_url + self.sequence_prefix + str(i) + ".jpg"
+
+    def get_absolute_url(self):
+        return "/video/%d/" % self.id
+
 
 databrowse.site.register(Video)
 databrowse.site.register(Keyword)

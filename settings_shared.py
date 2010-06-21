@@ -68,7 +68,7 @@ INSTALLED_APPS = (
     'tagging',
     'template_utils',
     'typogrify',
-    'machine',
+    'mediamachine.machine',
     'django.contrib.databrowse',
 )
 
