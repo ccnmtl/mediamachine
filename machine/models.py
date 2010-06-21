@@ -48,7 +48,10 @@ class Video(models.Model):
     keywords = models.ManyToManyField(Keyword)
 
     def __unicode__(self):
-        return "%s: %s" % (self.title,self.scene)
+        if self.scene:
+            return "%s: %s" % (self.title,self.scene)
+        else:
+            return self.title
 
     
 
