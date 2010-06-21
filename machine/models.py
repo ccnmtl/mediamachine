@@ -42,6 +42,14 @@ class Theme(models.Model):
     def __unicode__(self):
         return self.theme
 
+class Keyword(models.Model):
+    video = models.ForeignKey(Video)
+    keyword = models.CharField(max_length=200,default="",blank=True,null=True)
+
+    def __unicode__(self):
+        return self.keyword
+
 databrowse.site.register(Video)
 databrowse.site.register(Resource)
 databrowse.site.register(Theme)
+databrowse.site.register(Keyword)

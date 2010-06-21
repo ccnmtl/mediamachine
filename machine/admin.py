@@ -4,3 +4,4 @@ from models import *
 admin.site.register(Video)
 admin.site.register(Resource)
 admin.site.register(Theme)
+admin.site.register(Keyword)

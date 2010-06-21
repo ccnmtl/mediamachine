@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from machine.models import Video, Resource, Theme
+from machine.models import Video, Resource, Theme, Keyword
 import csv
 
 class Command(BaseCommand):
@@ -50,3 +50,9 @@ class Command(BaseCommand):
             if video_id in video_ids_old_to_new:
                 video = video_ids_old_to_new[video_id]
                 t = Theme.objects.create(video=video,theme=theme)
+
+        for row in csv.reader(open("dumps/MM_KEYWORD_T.csv")):
+            (old_id,video_id,keyword) = row
+            if video_id in video_ids_old_to_new:
+                video = video_ids_old_to_new[video_id]
+                k = Keyword.objects.create(video=video,keyword=keyword)
