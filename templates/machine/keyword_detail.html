@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1><a href="/keyword/">Keyword</a>: {{object.keyword}}</h1>
+
+<p>Videos with this keyword:</p>
+
+<table>
+{% for object in object.video_set.all %}
+<tr>
+<th valign="top">
+<a href="{{object.get_absolute_url}}">
+<img src="{{object.image_url}}{{object.image_filename}}"></a></th>
+<td valign="top"><a href="{{object.get_absolute_url}}">{{object.title}}</a></td>
+<td valign="top"><a href="{{object.get_absolute_url}}">{{object.scene}}</a></td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
