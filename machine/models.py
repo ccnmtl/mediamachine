@@ -10,12 +10,18 @@ class Resource(models.Model):
 
 class Theme(models.Model):
     theme = models.CharField(max_length=200,default="",blank=True,null=True)
+
+    class Meta:
+        ordering = ('theme',)
     
     def __unicode__(self):
         return self.theme
 
 class Keyword(models.Model):
     keyword = models.CharField(max_length=200,default="",blank=True,null=True)
+
+    class Meta:
+        ordering = ('keyword',)
 
     def __unicode__(self):
         return self.keyword
@@ -46,6 +52,9 @@ class Video(models.Model):
     resources = models.ManyToManyField(Resource)
     themes = models.ManyToManyField(Theme)
     keywords = models.ManyToManyField(Keyword)
+
+    class Meta:
+        ordering = ('title','scene')
 
     def __unicode__(self):
         if self.scene:
