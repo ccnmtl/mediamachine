@@ -43,16 +43,23 @@ class Command(BaseCommand):
         for row in csv.reader(open("dumps/MM_RESOURCE_T.csv")):
             (old_id,video_id,resource,description) = row
             video = video_ids_old_to_new[video_id]
-            r = Resource.objects.create(video=video,resource=resource,description=description)
+            r,created = Resource.objects.get_or_create(resource=resource,description=description)
+            video.resources.add(r)
+            video.save()
         
         for row in csv.reader(open("dumps/MM_THEME_T.csv")):
             (old_id,video_id,theme) = row
             if video_id in video_ids_old_to_new:
                 video = video_ids_old_to_new[video_id]
-                t = Theme.objects.create(video=video,theme=theme)
+                t,created = Theme.objects.get_or_create(theme=theme)
+                video.themes.add(t)
+                video.save()
 
         for row in csv.reader(open("dumps/MM_KEYWORD_T.csv")):
             (old_id,video_id,keyword) = row
             if video_id in video_ids_old_to_new:
                 video = video_ids_old_to_new[video_id]
-                k = Keyword.objects.create(video=video,keyword=keyword)
+                k,created = Keyword.objects.get_or_create(keyword=keyword)
+                video.keywords.add(k)
+                video.save()
+                

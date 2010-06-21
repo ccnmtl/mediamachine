@@ -1,6 +1,25 @@
 from django.db import models
 from django.contrib import databrowse
 
+class Resource(models.Model):
+    resource = models.CharField(max_length=200,default="",blank=True,null=True)
+    description = models.TextField(default="",blank=True,null=True)
+
+    def __unicode__(self):
+        return self.resource
+
+class Theme(models.Model):
+    theme = models.CharField(max_length=200,default="",blank=True,null=True)
+    
+    def __unicode__(self):
+        return self.theme
+
+class Keyword(models.Model):
+    keyword = models.CharField(max_length=200,default="",blank=True,null=True)
+
+    def __unicode__(self):
+        return self.keyword
+
 class Video(models.Model):
     title = models.CharField(max_length=200,default="",blank=True,null=True)
     scene = models.CharField(max_length=200,default="",blank=True,null=True)
@@ -24,32 +43,17 @@ class Video(models.Model):
     sequence_prefix = models.CharField(max_length=200,default="",blank=True,null=True)
     sequence_count = models.IntegerField(default=1,blank=True,null=True)
 
+    resources = models.ManyToManyField(Resource)
+    themes = models.ManyToManyField(Theme)
+    keywords = models.ManyToManyField(Keyword)
+
     def __unicode__(self):
         return "%s: %s" % (self.title,self.scene)
 
-class Resource(models.Model):
-    video = models.ForeignKey(Video)
-    resource = models.CharField(max_length=200,default="",blank=True,null=True)
-    description = models.TextField(default="",blank=True,null=True)
-
-    def __unicode__(self):
-        return self.resource
-
-class Theme(models.Model):
-    video = models.ForeignKey(Video)
-    theme = models.CharField(max_length=200,default="",blank=True,null=True)
     
-    def __unicode__(self):
-        return self.theme
-
-class Keyword(models.Model):
-    video = models.ForeignKey(Video)
-    keyword = models.CharField(max_length=200,default="",blank=True,null=True)
-
-    def __unicode__(self):
-        return self.keyword
 
 databrowse.site.register(Video)
-databrowse.site.register(Resource)
-databrowse.site.register(Theme)
 databrowse.site.register(Keyword)
+databrowse.site.register(Theme)
+databrowse.site.register(Resource)
+
