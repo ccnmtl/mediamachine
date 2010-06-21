@@ -13,7 +13,7 @@
 	{% block js %}{% endblock %}
 	{% block feeds %}{% endblock %}
 </head>
-<body class="one_column {% block widthtype %}fixed{% endblock %}">
+<body bgcolor="#666666" alink="#FFFF00" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0"> 
 {% comment %}
 ###### FOR WIDTH TYPE--
    fixed : fixed width, doesn't change with browser resize
@@ -26,18 +26,51 @@
 
 
 {% block masthead %}
-	<!-- ###### Site banner ###### -->
-	<div id="header">
-		<!-- Project title/logo --><h1 id="logo_project"><a href="./" title="Project Title: Project Django"><span>Project Title: Project Django </span></a></h1>	
-		{% block standardnav %}
-		<ul id="standardnav">
-			<li><a href="#">About</a></li>
-			<li><a href="#">Help</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-		{% endblock %}
-		<!-- CCNMTL title/logo --><h4 id="logo_ccnmtl"><a href="http://ccnmtl.columbia.edu" target="_blank" title="Columbia Center for New Media Teaching and Learning"><span>Produced by the Columbia Center for New Media Teaching and Learning</span></a></h4>
-	</div><!-- id="header" -->
+<!--begin color bars--> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
+	<tr> 
+	<td height="45"><img src="/site_media/img/colors.gif" width="560" height="45" border="0"></td> 
+	</tr> 
+</table> 
+<!--end color bars--> 
+
+<!--begin logo and main navigation--> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#333333"> 
+	<tr> 
+	<td nowrap width="207" height="25"><img src="/site_media/img/logo_mediamachine.gif" width="207" height="25" border="0"></td> 
+	<td width="100%"><br></td> 
+	<td nowrap width="510" height="25"> 
+ 
+		<table border="0" width="510" cellspacing="0" cellpadding="0"> 
+			<tr> 
+ 
+			<td nowrap width="77" height="25"><a href="/" onmouseover="img_act('a')" onmouseout="img_inact('a')"><img name="a" src="/site_media/img/nav_intro_off.gif" width="77" height="9" border="0" alt="Introduction"></a></td> 
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+<!--
+			<td nowrap width="26" height="25"><a href="/help/" onmouseover="img_act('b')" onmouseout="img_inact('b')"><img name="b" src="/site_media/img/nav_help_off.gif" width="26" height="9" border="0" alt="Help"></a></td> 
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+			<td nowrap width="41" height="25"><a href="/search/"><img src="/site_media/img/nav_search_off.gif" width="41" height="9" border="0" alt="Search"></a></td> 
+-->			
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+			<td nowrap width="44" height="25"><a href="Credits.jsp" onmouseover="img_act('f')" onmouseout="img_inact('f')"><img name="f" src="/site_media/img/nav_credits_off.gif" width="44" height="9" border="0" alt="Credits"></a></td> 
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+			<td nowrap width="55" height="25"><a href="Feedback.jsp" onmouseover="img_act('g')" onmouseout="img_inact('g')"><img name="g" src="/site_media/img/nav_feedback_off.gif" width="55" height="9" border="0" alt="Credits"></a></td> 
+<!--		
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+			<td nowrap width="69" height="25"><a href="SearchToEdit.jsp" onmouseover="img_act('d')" onmouseout="img_inact('d')"><img name="d" src="/site_media/img/nav_edit_off.gif" width="69" height="9" border="0" alt="Edit Record"></td> 
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+			<td nowrap width="68" height="25"><a href="AddRecord.jsp" onmouseover="img_act('e')" onmouseout="img_inact('e')"><img name="e" src="/site_media/img/nav_add_off.gif" width="68" height="9" border="0" alt="Add Record"></td> 
+ -->
+			<td nowrap width="10" height="25"><spacer type="block" width="10" height="25"></td> 
+			</tr> 
+		</table> 
+ 
+	</td> 
+	</tr> 
+</table> 
+<!--end logo and main navigation--> 
+ 
+
 {% endblock %}
 
 	<!-- ###### Don't touch this ###### -->
@@ -45,64 +78,54 @@
 	
 
 {% block primarynav %}
-	<!-- ###### Primary navigation ###### -->
-	<div id="primarynav">
-		<div class="encase" id="{% block navalignment %}leftside{% endblock %}">
-{% comment %}
-###### FOR ALIGNMENT OF TABS on the primary navigation--
-   leftside : all tabs aligning to the left, login to the right
-   rightside :  all tabs aligning to the right, login to the left
-{% endcomment %}
 
-			{% block primarynavtabs %}
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-			</ul><!-- id="primarynavtabs" -->
-			{% endblock %}
-			
-			{% block usernav %}{% endblock %}
-
-		</div><!-- id="leftside/rightside" -->
-	</div><!-- id="primarynav" -->
 {% endblock %}
 
 {% comment %} not using this now <div id="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div> {% endcomment %}
 
-
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+	<tr> 
+	<td nowrap colspan="3" width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	</tr> 
+	<tr> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	<td valign="top"> 
 	<!-- ###### Page: Sidebars and Content ###### -->
-	<div id="pagebody">
-
-
-		<!-- ###### Page Content ###### -->
-		<div id="content">
-			<div id="squish"><!-- Don't touch this div -->
-				<div class="block">
 					{% block pagetitle %}{% endblock %}
 				
 					{% block content %}{% endblock %}
-
-				<!-- ###### Don't touch this ###### -->
-				<div class="visualclear"></div><!-- id="visualclear" -->				
-
-				</div><!-- class="block" -->
-			</div><!-- id="squish" -->
-		</div><!-- id="content" -->
-
-
-		<!-- ###### Don't touch this ###### -->
-		<div class="visualclear"></div>
+</td> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	</tr> 
 	
-	</div><!-- id="pagebody" -->
+	<tr> 
+	<td nowrap colspan="3"><br><br></td> 
+	</tr> 
+	
+	<tr> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	<td valign="top"> 
+ 
+		<table border="0" cellspacing="0" cellpadding="0" align="center"> 
+		<tr> 
+		<td width="70"><a href="http://ccnmtl.columbia.edu/"><img src="/site_media/img/logo_ccnmtl.gif" width="70" height="19" border="0"></a></td> 
+		<td width="20" height="20"><spacer type="block" width="20" height="20"></td> 
+		<td class="footer">Produced by the Columbia Center for New Media Teaching and Learning 2002</td> 
+		</tr> 
+		</table> 
+	
+	</td> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	</tr> 
+	
+	<tr> 
+	<td nowrap colspan="3" width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	</tr> 
+	
+</table> 
 
 
 {% block footer %}
-	<!-- ###### Footer ###### -->
-	<div id="footer">
-	<p class="printonly"><br /><img src="/site_media/img/logo_ccnmtl_sidebar.gif" class="printonly" /></p>
-	</div><!-- id="footer" -->
 {% endblock %}
 
 
