@@ -27,7 +27,7 @@ urlpatterns = patterns('',
                        ('^accounts/',include('djangowind.urls')),
                        ('^$','django.views.generic.simple.redirect_to', {'url': '/databrowse/'}),
                        url('^video/$','django.views.generic.list_detail.object_list',
-                        dict(video_info_dict,template_name='machine/video_list.html'),name='video_list'),
+                        dict(video_info_dict,paginate_by=10, template_name='machine/video_list.html'),name='video_list'),
                        url('^video/(?P<object_id>\d+)/$','django.views.generic.list_detail.object_detail',
                         dict(video_info_dict,template_name='machine/video_detail.html'),name='video_detail'),
 
