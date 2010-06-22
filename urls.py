@@ -25,7 +25,7 @@ urlpatterns = patterns('',
                        # Example:
                        # (r'^mediamachine/', include('mediamachine.foo.urls')),
                        ('^accounts/',include('djangowind.urls')),
-                       ('^$','django.views.generic.simple.redirect_to', {'url': '/databrowse/'}),
+                       ('^$','django.views.generic.simple.direct_to_template', {'template' : 'machine/index.html'}),
                        url('^video/$','django.views.generic.list_detail.object_list',
                         dict(video_info_dict,paginate_by=10, template_name='machine/video_list.html'),name='video_list'),
                        url('^video/(?P<object_id>\d+)/$','django.views.generic.list_detail.object_detail',
