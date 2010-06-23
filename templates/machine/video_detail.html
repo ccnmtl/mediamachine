@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1><a href="/video/">Video</a>: {{object.title}}: {{object.scene}}</h1>
+<h1><a href="/video/">Video</a>: {{object.title|safe}}: {{object.scene|safe}}</h1>
 
 {% if object.author %}
-<h2>{{object.author}}</h2>
+<h2>{{object.author|safe}}</h2>
 {% endif %}
 
-<p>copyright: {{object.copyrightholder}}{% if copyrightdate %}
+<p>copyright: {{object.copyrightholder|safe}}{% if copyrightdate %}
   {{object.copyrightdate}}{% endif %}</p>
 
 <p>Watch it: {% if object.local_video %}
@@ -16,24 +16,39 @@
 <a href="{{object.real_video_filename}}">video</a>
 {% endif %}</p>
 
+
+{% if object.full_text %}
+<h3>Full Text</h3>
+{{object.full_text|safe}}
+{% endif %}
+
+{% if object.questions %}
+<h3>Questions</h3>
+{{object.questions|safe}}
+{% endif %}
+
+{% if object.commentary %}
+<h3>Commentary</h3>
+{{object.commentary|safe}}
+{% endif %}
+
+{% if object.plot %}
+<h3>Plot</h3>
+{{object.plot|safe}}
+{% endif %}
+
+{% if object.screenplay %}
+<h3>Screenplay</h3>
+{{object.screenplay|safe}}
+{% endif %}
+
+<br style="clear:both"/>
+
 {% for image in object.images %}
 <img src="{{image}}"/>
 {% endfor %}
 
-{% comment %}
-
-These are all apparently stored as textfiles on the CUIT filesystem.
-We are going to need to copy them down and import them before we can
-do anything with them.
-
-Full text	
-Questions	
-Commentary	
-Plot	
-Screenplay	
-
-{% endcomment %}
-
+<br style="clear:both"/>
 {% if object.resources.count %}
 <h3>Resources</h3>
 <ul>

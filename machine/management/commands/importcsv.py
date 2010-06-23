@@ -1,6 +1,15 @@
 from django.core.management.base import BaseCommand, CommandError
-from machine.models import Video, Resource, Theme, Keyword
+from mediamachine.machine.models import Video, Resource, Theme, Keyword
 import csv
+
+def readtextfile(filename):
+    if filename.endswith(".txt"):
+        try:
+            return unicode(open("dumps/" + filename).read(),errors='replace')
+        except:
+            return ""
+    else:
+        return filename
 
 class Command(BaseCommand):
     args = ''
@@ -23,6 +32,14 @@ class Command(BaseCommand):
             if sequence_count == "":
                 sequence_count = 0
             print old_id, title, author, copyrightdate, sequence_count
+
+            # suck in textfiles
+            full_text = readtextfile(full_text)
+            questions = readtextfile(questions)
+            commentary = readtextfile(commentary)
+            plot = readtextfile(plot)
+            screenplay = readtextfile(screenplay)
+
             v = Video.objects.create(title=title,scene=scene,
                                      author=unicode(author,errors='replace'),copyrightholder=unicode(copyrightholder,errors='replace'),
                                      copyrightdate=copyrightdate,
