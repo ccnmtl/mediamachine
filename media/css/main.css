@@ -261,3 +261,5 @@ INPUT.PageIndexOther {
   border: none #666666 0px;
   background-color: #666666;
 }
+
+tr.odd td {background-color: #777;}
