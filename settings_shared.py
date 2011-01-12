@@ -4,9 +4,7 @@ import os.path
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('CCNMTL', 'ccnmtl-sysadmin@columbia.edu'),
-)
+ADMINS = ( )
 
 MANAGERS = ADMINS
 
@@ -70,7 +68,11 @@ INSTALLED_APPS = (
     'typogrify',
     'mediamachine.machine',
     'django.contrib.databrowse',
+    'sentry.client',
 )
+
+ENTRY_REMOTE_URL = 'http://sentry.ccnmtl.columbia.edu/sentry/store/'
+SENTRY_KEY = 'EWv5EELZnZIrOY'
 
 THUMBNAIL_SUBDIR = "thumbs"
 EMAIL_SUBJECT_PREFIX = "[mediamachine] "
