@@ -45,6 +45,7 @@ urlpatterns = patterns('',
 
                        (r'^databrowse/(.*)', login_required(databrowse.site.root)),
                        (r'^admin/(.*)', admin.site.root),
+                       (r'^munin/',include('munin.urls')),
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': site_media_root}),
                        (r'^uploads/(?P<path>.*)$','django.views.static.serve',{'document_root' : settings.MEDIA_ROOT}),
 ) + staticmedia.serve()

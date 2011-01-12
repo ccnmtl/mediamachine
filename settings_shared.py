@@ -69,6 +69,7 @@ INSTALLED_APPS = (
     'mediamachine.machine',
     'django.contrib.databrowse',
     'sentry.client',
+    'munin',
 )
 
 ENTRY_REMOTE_URL = 'http://sentry.ccnmtl.columbia.edu/sentry/store/'
