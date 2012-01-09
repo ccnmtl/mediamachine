@@ -4,18 +4,37 @@ import sys
 import subprocess
 import shutil
 
-pwd = os.path.dirname(__file__)
-vedir = os.path.join(pwd,"ve")
+pwd = os.path.abspath(os.path.dirname(__file__))
+vedir = os.path.abspath(os.path.join(pwd,"ve"))
 
 if os.path.exists(vedir):
     shutil.rmtree(vedir)
 
-subprocess.call(["python",os.path.join(pwd,"pip.py"),"install",
-                 "-E",os.path.join(pwd,"ve"),
-                 "--enable-site-packages",
-                 "--requirement",os.path.join(pwd,"requirements/apps.txt")])
+virtualenv_support_dir = os.path.abspath(os.path.join(pwd, "requirements", "virtualenv_support"))
 
-# do not want to try to install the egg on 2.5
-if sys.version.startswith("2.6"):
-    subprocess.call([os.path.join(vedir,"bin/easy_install"),
-                     os.path.join(pwd,"requirements/eggs/egenix_mx_base-3.1.3-py2.6-linux-x86_64.egg")])
+ret = subprocess.call(["python", "virtualenv.py", 
+                       "--extra-search-dir=%s" % virtualenv_support_dir,
+                       "--never-download",
+                       vedir])
+if ret: exit(ret)
+
+if sys.version.startswith('2.6'):
+    # pain in the ass, required by celery/amqplib
+    # have to do seperately or it breaks in 2.7
+    ret = subprocess.call([os.path.join(vedir, 'bin', 'pip'), "install",
+                           "-E", vedir,
+                           "--index-url=''",
+                           os.path.join(pwd,"requirements/src/importlib-1.0.1.tar.gz")])
+    if ret: exit(ret)
+
+
+ret = subprocess.call([os.path.join(vedir, 'bin', 'pip'), "install",
+                       "-E", vedir,
+                       "--index-url=''",
+                       "--requirement",os.path.join(pwd,"requirements/apps.txt")])
+if ret: exit(ret)
+
+ret = subprocess.call(["python","virtualenv.py","--relocatable",vedir])
+# --relocatable always complains about activate.csh, which we don't really
+# care about. but it means we need to ignore its error messages
+
