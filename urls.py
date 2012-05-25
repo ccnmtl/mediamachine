@@ -44,7 +44,7 @@ urlpatterns = patterns('',
                         dict(keyword_info_dict,template_name='machine/keyword_detail.html'),name='keyword_detail'),
 
                        (r'^databrowse/(.*)', login_required(databrowse.site.root)),
-                       (r'^admin/(.*)', admin.site.root),
+                       (r'^admin/', include(admin.site.urls)),
                        (r'^munin/',include('munin.urls')),
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': site_media_root}),
                        (r'^uploads/(?P<path>.*)$','django.views.static.serve',{'document_root' : settings.MEDIA_ROOT}),
