@@ -5,6 +5,7 @@ from django.contrib import databrowse
 import os.path
 admin.autodiscover()
 import staticmedia
+from django.views.generic.simple import direct_to_template
 from mediamachine.machine.models import Video, Theme, Keyword
 from django.contrib.auth.decorators import login_required
 
@@ -46,6 +47,7 @@ urlpatterns = patterns('',
                        (r'^databrowse/(.*)', login_required(databrowse.site.root)),
                        (r'^admin/', include(admin.site.urls)),
                        (r'^munin/',include('munin.urls')),
+                       (r'^stats/', direct_to_template, {'template': 'stats.html'}),
                        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': site_media_root}),
                        (r'^uploads/(?P<path>.*)$','django.views.static.serve',{'document_root' : settings.MEDIA_ROOT}),
 ) + staticmedia.serve()
