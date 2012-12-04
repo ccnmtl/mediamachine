@@ -1,5 +1,6 @@
 # Django settings for mediamachine project.
 import os.path
+import sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -18,6 +19,26 @@ DATABASES = {
         'PASSWORD' : '',
         }
 }
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default' : {
+            'ENGINE' : 'django.db.backends.sqlite3',
+            'NAME' : ':memory:',
+            'HOST' : '',
+            'PORT' : '',
+            'USER' : '',
+            'PASSWORD' : '',
+            }
+    }
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=mediamachine.machine',
+]
+
 
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
@@ -77,6 +98,7 @@ INSTALLED_APPS = (
     'sentry.client',
     'munin',
     'django_statsd',
+    'django_nose',
 )
 
 STATSD_CLIENT = 'statsd.client'
