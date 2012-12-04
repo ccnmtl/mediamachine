@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import *
+from models import Video, Resource, Theme, Keyword
 
 admin.site.register(Video)
 admin.site.register(Resource)
