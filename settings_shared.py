@@ -99,6 +99,7 @@ INSTALLED_APPS = (
     'munin',
     'django_statsd',
     'django_nose',
+    'raven.contrib.django',
 )
 
 STATSD_CLIENT = 'statsd.client'
@@ -106,9 +107,6 @@ STATSD_PREFIX = 'mediamachine'
 STATSD_HOST = 'localhost'
 STATSD_PORT = 8125
 STATSD_PATCHES = ['django_statsd.patches.db', ]
-
-ENTRY_REMOTE_URL = 'http://sentry.ccnmtl.columbia.edu/sentry/store/'
-SENTRY_KEY = 'EWv5EELZnZIrOY'
 
 THUMBNAIL_SUBDIR = "thumbs"
 EMAIL_SUBJECT_PREFIX = "[mediamachine] "
