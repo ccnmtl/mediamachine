@@ -39,7 +39,7 @@ NOSE_ARGS = [
     '--cover-package=mediamachine.machine',
 ]
 
-
+SOUTH_TESTS_MIGRATE = False
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
@@ -72,10 +72,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mediamachine.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    # Put application templates before these fallback ones:
     "/var/www/mediamachine/templates/",
     os.path.join(os.path.dirname(__file__),"templates"),
 )
@@ -100,6 +96,7 @@ INSTALLED_APPS = (
     'django_statsd',
     'django_nose',
     'raven.contrib.django',
+    'south',
 )
 
 STATSD_CLIENT = 'statsd.client'
