@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+	<tr> 
+	<td nowrap colspan="3" width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	</tr> 
+	<tr> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	<td valign="top"> 
+
+<!--begin search page index row--> 
+	<tr> 
+	<td align="right" colspan="2"> 
+          <table border="0" cellspacing="0" cellpadding="0" align="right"> 
+          <tr> 
+          <td width="15"> 
+	    {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><input type="image" src="/site_media/img/arrow_left.gif" border="0"></a>
+	    {% else %}
+              <input type="image" src="/site_media/img/arrow_leftoff.gif" border="0"> 
+            {% endif %}
+          </td> 
+ 
+ 
+	<td class="subnav" align="center" valign="middle"> 
+	&nbsp;
+	Page 
+        <span class="current">{{ page_obj.number }}</span> 
+        of 
+	<span class="current">{{ paginator.num_pages }}</span> 
+				
+	&nbsp;
+	</td> 
+					
+ 
+        <td width="15"> 
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}"><input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_right.gif" border="0"></a>
+	  {% else %}
+          <input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_rightoff.gif" border="0"> 
+          {% endif %}
+            
+
+	
+	</td> 
+ 
+ 
+	<td class="subnav"> 
+	&nbsp;&nbsp;&nbsp;
+	</td> 
+					
+	<td class="subnav" align="center" valign="middle"> 
+					
+						
+        </td> 
+					
+	<td> 
+	</td> 
+					
+	<td class="subnav"> 
+	&nbsp;&nbsp;
+	</td> 
+					
+	<td> 
+	</td> 
+	</tr> 
+	</table> 
+	</td> 
+	</tr> 
+	<!--end search page index row--> 
+ 
+ 
+ 
+	 <!--begin 20px spacer row--> 
+	 <tr> 
+	 <td nowrap width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	 </tr> 
+	 <!--end 20px spacer row--> 
+</table>
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="10">
+{% for object in object_list %}
+
+<tr class="{% cycle 'even' 'odd' %}">
+  <td nowrap width="150" class="searchmatch" valign="top" align="center">
+             <IMG SRC="{{object.image_url}}{{object.image_filename}}" BORDER="0" WIDTH="150" HEIGHT="100">
+        <br>
+        <br>
+
+             [ <A HREF="{{object.real_video_url}}{{object.real_video_filename}}">Video</A> ]
+
+        <br>
+        </td>
+        <td class="searchmatch" valign="top">
+
+        <a href="{{object.get_absolute_url}}"><b>{{object.title|safe}}</b>{% if object.scene %}
+        - <i>{{object.scene|safe}}</i>{% endif %}</a>
+
+        <br>
+
+        Director: {{object.author|safe}}
+
+        Copyright:
+
+	{{object.copyrightholder|safe}}
+        &nbsp;
+
+	{% if object.copyrightdate %}
+	{{ object.copyrightdate }}
+	{% endif %}
+
+        <br>
+
+        </td>
+</tr>
+{% endfor %}
+</table>
+
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+	<tr> 
+	<td nowrap colspan="3" width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	</tr> 
+	<tr> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	<td valign="top"> 
+
+<!--begin search page index row--> 
+	<tr> 
+	<td align="right" colspan="2"> 
+          <table border="0" cellspacing="0" cellpadding="0" align="right"> 
+          <tr> 
+          <td width="15"> 
+	    {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><input type="image" src="/site_media/img/arrow_left.gif" border="0"></a>
+	    {% else %}
+              <input type="image" src="/site_media/img/arrow_leftoff.gif" border="0"> 
+            {% endif %}
+          </td> 
+ 
+ 
+	<td class="subnav" align="center" valign="middle"> 
+	&nbsp;
+	Page 
+        <span class="current">{{ page_obj.number }}</span> 
+        of 
+	<span class="current">{{ paginator.num_pages }}</span> 
+				
+	&nbsp;
+	</td> 
+					
+ 
+        <td width="15"> 
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}"><input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_right.gif" border="0"></a>
+	  {% else %}
+          <input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_rightoff.gif" border="0"> 
+          {% endif %}
+            
+
+	
+	</td> 
+ 
+ 
+	<td class="subnav"> 
+	&nbsp;&nbsp;&nbsp;
+	</td> 
+					
+	<td class="subnav" align="center" valign="middle"> 
+					
+						
+        </td> 
+					
+	<td> 
+	</td> 
+					
+	<td class="subnav"> 
+	&nbsp;&nbsp;
+	</td> 
+					
+	<td> 
+	</td> 
+	</tr> 
+	</table> 
+	</td> 
+	</tr> 
+	<!--end search page index row--> 
+
+</table>
+
+
+{% endblock %}

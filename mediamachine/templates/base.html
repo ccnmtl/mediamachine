@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>mediamachine: {% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="/site_media/css/main.css?site=mediamachine" media="screen" />
+	<link rel="stylesheet" href="/site_media/css/print.css" media="print" />
+	<!--[if IE 6]>
+	<link rel="stylesheet" href="/site_media/css/main_ie6_1col.css" media="screen" />
+	<![endif]-->
+	<link rel="shortcut icon" href="/site_media/img/favicon.ico" type="image/x-icon" />
+	{% block css %}{% endblock %}
+	{% block js %}{% endblock %}
+	{% block feeds %}{% endblock %}
+</head>
+<body bgcolor="#666666" alink="#FFFF00" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0"> 
+{% comment %}
+###### FOR WIDTH TYPE--
+   fixed : fixed width, doesn't change with browser resize
+   fluid : variable width, changes with browser resize
+   You can move this to base template if you don't want to deal with it
+   all time in flatpages templates
+{% endcomment %}
+
+<div id="container">
+
+
+{% block masthead %}
+<!--begin color bars--> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
+	<tr> 
+	<td height="45"><img src="/site_media/img/colors.gif" width="560" height="45" border="0"></td> 
+	</tr> 
+</table> 
+<!--end color bars--> 
+
+<!--begin logo and main navigation--> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#333333"> 
+	<tr> 
+	<td nowrap width="207" height="25"><img src="/site_media/img/logo_mediamachine.gif" width="207" height="25" border="0"></td> 
+	<td width="100%"><br></td> 
+	<td nowrap width="510" height="25" align="right"> 
+ 
+		<table border="0" width="210" cellspacing="0" cellpadding="0"> 
+			<tr> 
+ 
+			<td nowrap width="77" height="25"><a href="/" style="color:white;text-decoration:none">HOME</a></td> 
+			<td nowrap width="20" height="25"><spacer type="block" width="20" height="25"></td> 
+			<td nowrap width="44"
+			height="25"><a href="/credits/"
+			style="color:white;text-decoration:none">CREDITS</a></td> 
+			<td nowrap width="10" height="25"><spacer type="block" width="10" height="25"></td> 
+			</tr> 
+		</table> 
+ 
+	</td> 
+	</tr> 
+</table> 
+<!--end logo and main navigation--> 
+ 
+
+{% endblock %}
+
+	<!-- ###### Don't touch this ###### -->
+	<div class="visualclear"></div>
+	
+
+{% block primarynav %}
+
+{% endblock %}
+
+{% comment %} not using this now <div id="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div> {% endcomment %}
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+	<tr> 
+	<td nowrap colspan="3" width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	</tr> 
+	<tr> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	<td valign="top"> 
+	<!-- ###### Page: Sidebars and Content ###### -->
+					{% block pagetitle %}{% endblock %}
+				
+					{% block content %}{% endblock %}
+</td> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	</tr> 
+	
+	<tr> 
+	<td nowrap colspan="3"><br><br></td> 
+	</tr> 
+	
+	<tr> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	<td valign="top"> 
+ 
+		<table border="0" cellspacing="0" cellpadding="0" align="center"> 
+		<tr> 
+		<td width="70"><a href="http://ccnmtl.columbia.edu/"><img src="/site_media/img/logo_ccnmtl.gif" width="70" height="19" border="0"></a></td> 
+		<td width="20" height="20"><spacer type="block" width="20" height="20"></td> 
+		<td class="footer">Produced by the Columbia Center for New Media Teaching and Learning 2002</td> 
+		</tr> 
+		</table> 
+	
+	</td> 
+	<td nowrap width="20" height="1"><spacer type="block" width="20" height="1"></td> 
+	</tr> 
+	
+	<tr> 
+	<td nowrap colspan="3" width="1" height="20"><spacer type="block" width="1" height="20"></td> 
+	</tr> 
+	
+</table> 
+
+
+{% block footer %}
+{% endblock %}
+
+
+</div><!-- id="container" -->
+</body>
+</html>

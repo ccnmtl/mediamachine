@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1><a href="/video/">Video</a>: {{object.title|safe}}: {{object.scene|safe}}</h1>
+
+{% if object.author %}
+<h2>{{object.author|safe}}</h2>
+{% endif %}
+
+<p>copyright: {{object.copyrightholder|safe}}{% if copyrightdate %}
+  {{object.copyrightdate}}{% endif %}</p>
+
+<p>Watch it: {% if object.local_video %}
+<a href="{{object.real_video_url}}{{object.real_video_filename}}">video</a>
+{% else %}
+<a href="{{object.real_video_filename}}">video</a>
+{% endif %}</p>
+
+
+{% if object.full_text %}
+<h3>Full Text</h3>
+{{object.full_text|safe}}
+{% endif %}
+
+{% if object.questions %}
+<h3>Questions</h3>
+{{object.questions|safe}}
+{% endif %}
+
+{% if object.commentary %}
+<h3>Commentary</h3>
+{{object.commentary|safe}}
+{% endif %}
+
+{% if object.plot %}
+<h3>Plot</h3>
+{{object.plot|safe}}
+{% endif %}
+
+{% if object.screenplay %}
+<h3>Screenplay</h3>
+{{object.screenplay|safe}}
+{% endif %}
+
+<br style="clear:both"/>
+
+{% for image in object.images %}
+<img src="{{image}}"/>
+{% endfor %}
+
+<br style="clear:both"/>
+{% if object.resources.count %}
+<h3>Resources</h3>
+<ul>
+  {% for resource in object.resources.all %}
+  <li><a href="{{resource.resource}}">{{resource.description|default:resource.resource}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if object.themes.count %}
+<h3><a href="/theme/">Themes</a></h3>
+<ul>
+  {% for theme in object.themes.all %}
+  <li><a href="{{theme.get_absolute_url}}">{{theme.theme}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if object.keywords.count %}
+<h3><a href="/keyword/">Keywords</a></h3>
+<ul>
+  {% for keyword in object.keywords.all %}
+  <li><a href="{{keyword.get_absolute_url}}">{{keyword.keyword}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
