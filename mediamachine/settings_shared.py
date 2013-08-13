@@ -22,7 +22,7 @@ DATABASES = {
     }
 }
 
-if 'test' in sys.argv:
+if 'test' in sys.argv or 'jenkins' in sys.argv:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -33,6 +33,17 @@ if 'test' in sys.argv:
             'PASSWORD': '',
         }
     }
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pylint',
+    'django_jenkins.tasks.with_coverage',
+    'django_jenkins.tasks.django_tests',
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+)
+PROJECT_APPS = [
+    'mediamachine.machine',
+]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
@@ -101,6 +112,7 @@ INSTALLED_APPS = (
     'south',
     'smoketest',
     'debug_toolbar',
+    'django_jenkins',
 )
 
 INTERNAL_IPS = ('127.0.0.1', )
