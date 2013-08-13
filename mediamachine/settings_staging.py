@@ -27,7 +27,7 @@ DATABASES = {
         }
 }
 
-SENTRY_SITE = 'mediamachine'
+SENTRY_SITE = 'mediamachine-staging'
 SENTRY_SERVERS = ['http://sentry.ccnmtl.columbia.edu/sentry/store/']
 
 if 'migrate' not in sys.argv:
