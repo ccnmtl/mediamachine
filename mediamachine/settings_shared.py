@@ -94,7 +94,6 @@ INSTALLED_APPS = (
     'typogrify',
     'mediamachine.machine',
     'django.contrib.databrowse',
-    'sentry.client',
     'munin',
     'django_statsd',
     'django_nose',
@@ -150,18 +149,3 @@ WIND_STAFF_MAPPER_GROUPS = ['tlc.cunix.local:columbia.edu']
 WIND_SUPERUSER_MAPPER_GROUPS = [
     'anp8', 'jb2410', 'zm4', 'sbd12', 'egr2107', 'kmh2124',
     'sld2131', 'amm8', 'mar227', 'ed2198']
-
-# TinyMCE settings
-
-TINYMCE_JS_URL = '/site_media/js/tiny_mce/tiny_mce.js'
-TINYMCE_JS_ROOT = 'media/js/tiny_mce'
-
-TINYMCE_COMPRESSOR = False
-TINYMCE_SPELLCHECKER = True
-
-TINYMCE_DEFAULT_CONFIG = {
-    'cols': 80,
-    'rows': 30,
-    'plugins': 'table,spellchecker,paste,searchreplace',
-    'theme': 'simple',
-}
