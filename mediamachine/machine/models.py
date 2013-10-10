@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib import databrowse
+import django_databrowse
 
 
 class Resource(models.Model):
@@ -97,7 +97,7 @@ class Video(models.Model):
         return "/video/%d/" % self.id
 
 
-databrowse.site.register(Video)
-databrowse.site.register(Keyword)
-databrowse.site.register(Theme)
-databrowse.site.register(Resource)
+django_databrowse.site.register(Video)
+django_databrowse.site.register(Keyword)
+django_databrowse.site.register(Theme)
+django_databrowse.site.register(Resource)

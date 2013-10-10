@@ -1,67 +1,79 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-from django.contrib import databrowse
+import django_databrowse
 import os.path
 admin.autodiscover()
 import staticmedia
-from django.views.generic.simple import direct_to_template
 from mediamachine.machine.models import Video, Theme, Keyword
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
 
 site_media_root = os.path.join(os.path.dirname(__file__), "../media")
-
-video_info_dict = {
-    'queryset': Video.objects.all(),
-}
-
-theme_info_dict = {
-    'queryset': Theme.objects.all(),
-}
-
-keyword_info_dict = {
-    'queryset': Keyword.objects.all(),
-}
 
 urlpatterns = patterns(
     '',
     ('^accounts/', include('djangowind.urls')),
-    ('^$', 'mediamachine.machine.views.limited_direct_to_template',
-     {'template': 'machine/index.html'}),
-    url('^video/$', 'mediamachine.machine.views.limited_object_list',
-        dict(video_info_dict, paginate_by=10,
-             template_name='machine/video_list.html'),
-        name='video_list'),
-    url('^video/(?P<object_id>\d+)/$',
-        'mediamachine.machine.views.limited_object_detail',
-        dict(video_info_dict,
-             template_name='machine/video_detail.html'),
+    ('^$', login_required(TemplateView.as_view(template_name="stats.html"))),
+    url('^video/$',
+        login_required(
+            ListView.as_view(
+                queryset=Video.objects.all(),
+                template_name="machine/video_list.html",
+                paginate_by=10,
+            )
+        ), name='video_list'),
+
+    url('^video/(?P<pk>\d+)/$',
+        login_required(
+            DetailView.as_view(
+                model=Video,
+                template_name='machine/video_detail.html',
+            )
+        ),
         name='video_detail'),
 
-    url('^theme/$', 'mediamachine.machine.views.limited_object_list',
-        dict(theme_info_dict,
-             template_name='machine/theme_list.html'),
+    url('^theme/$',
+        login_required(
+            ListView.as_view(
+                queryset=Theme.objects.all(),
+                template_name="machine/theme_list.html",
+            )
+        ),
         name='theme_list'),
-    url('^theme/(?P<object_id>\d+)/$',
-        'mediamachine.machine.views.limited_object_detail',
-        dict(theme_info_dict,
-             template_name='machine/theme_detail.html'),
+    url('^theme/(?P<pk>\d+)/$',
+        login_required(
+            DetailView.as_view(
+                model=Theme,
+                template_name="machine/theme_detail.html",
+            )
+        ),
         name='theme_detail'),
 
-    url('^keyword/$', 'mediamachine.machine.views.limited_object_list',
-        dict(keyword_info_dict,
-             template_name='machine/keyword_list.html'),
+    url('^keyword/$',
+        login_required(
+            ListView.as_view(
+                queryset=Keyword.objects.all(),
+                template_name="machine/keyword_list.html",
+            )
+        ),
         name='keyword_list'),
-    url('^keyword/(?P<object_id>\d+)/$',
-        'mediamachine.machine.views.limited_object_detail',
-        dict(keyword_info_dict,
-             template_name='machine/keyword_detail.html'),
+    url('^keyword/(?P<pk>\d+)/$',
+        login_required(
+            DetailView.as_view(
+                model=Keyword,
+                template_name="machine/keyword_detail.html",
+            )
+        ),
         name='keyword_detail'),
 
-    (r'^databrowse/(.*)', login_required(databrowse.site.root)),
+    (r'^databrowse/(.*)', login_required(django_databrowse.site.root)),
     (r'^admin/', include(admin.site.urls)),
     (r'^munin/', include('munin.urls')),
-    (r'^stats/', direct_to_template, {'template': 'stats.html'}),
+    (r'^stats/$', TemplateView.as_view(template_name="stats.html")),
     (r'^smoketest/', include('smoketest.urls')),
     (r'^site_media/(?P<path>.*)$',
      'django.views.static.serve',
