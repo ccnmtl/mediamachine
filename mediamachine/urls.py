@@ -17,7 +17,9 @@ site_media_root = os.path.join(os.path.dirname(__file__), "../media")
 urlpatterns = patterns(
     '',
     ('^accounts/', include('djangowind.urls')),
-    ('^$', login_required(TemplateView.as_view(template_name="stats.html"))),
+    ('^$', login_required(
+            TemplateView.as_view(
+                template_name="machine/index.html"))),
     url('^video/$',
         login_required(
             ListView.as_view(
