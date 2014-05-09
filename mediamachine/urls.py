@@ -4,7 +4,6 @@ from django.conf import settings
 import django_databrowse
 import os.path
 admin.autodiscover()
-import staticmedia
 from mediamachine.machine.models import Video, Theme, Keyword
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
@@ -74,7 +73,6 @@ urlpatterns = patterns(
 
     (r'^databrowse/(.*)', login_required(django_databrowse.site.root)),
     (r'^admin/', include(admin.site.urls)),
-    (r'^munin/', include('munin.urls')),
     (r'^stats/$', TemplateView.as_view(template_name="stats.html")),
     (r'^smoketest/', include('smoketest.urls')),
     (r'^site_media/(?P<path>.*)$',
@@ -83,4 +81,4 @@ urlpatterns = patterns(
     (r'^uploads/(?P<path>.*)$',
      'django.views.static.serve',
      {'document_root': settings.MEDIA_ROOT}),
-) + staticmedia.serve()
+)
