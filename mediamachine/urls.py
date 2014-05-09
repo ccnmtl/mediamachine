@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 import django_databrowse
@@ -18,8 +18,8 @@ urlpatterns = patterns(
     '',
     ('^accounts/', include('djangowind.urls')),
     ('^$', login_required(
-            TemplateView.as_view(
-                template_name="machine/index.html"))),
+        TemplateView.as_view(
+            template_name="machine/index.html"))),
     url('^video/$',
         login_required(
             ListView.as_view(
