@@ -156,6 +156,10 @@ WIND_SUPERUSER_MAPPER_GROUPS = [
     'anp8', 'jb2410', 'zm4', 'sbd12', 'egr2107', 'kmh2124',
     'sld2131', 'amm8', 'mar227', 'ed2198']
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+SESSION_COOKIE_HTTPONLY = True
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
