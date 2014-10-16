@@ -110,6 +110,7 @@ INSTALLED_APPS = [
     'smoketest',
     'debug_toolbar',
     'django_jenkins',
+    'gunicorn',
 ]
 
 INTERNAL_IPS = ('127.0.0.1', )
