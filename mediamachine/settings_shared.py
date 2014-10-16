@@ -35,7 +35,7 @@ if 'test' in sys.argv or 'jenkins' in sys.argv:
     }
 
 JENKINS_TASKS = (
-    'django_jenkins.tasks.run_pylint',
+    #    'django_jenkins.tasks.run_pylint',
     'django_jenkins.tasks.with_coverage',
     'django_jenkins.tasks.run_pep8',
     'django_jenkins.tasks.run_pyflakes',
@@ -51,7 +51,6 @@ NOSE_ARGS = [
     '--cover-package=mediamachine.machine',
 ]
 
-SOUTH_TESTS_MIGRATE = False
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
@@ -98,7 +97,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sorl.thumbnail',
     'django.contrib.admin',
-    'tagging',
     'template_utils',
     'typogrify',
     'mediamachine.machine',
@@ -106,7 +104,6 @@ INSTALLED_APPS = [
     'django_statsd',
     'django_nose',
     'raven.contrib.django',
-    'south',
     'smoketest',
     'debug_toolbar',
     'django_jenkins',

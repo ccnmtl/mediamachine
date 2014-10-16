@@ -1,4 +1,4 @@
-Django==1.6.5
+Django==1.7
 resolver==0.2.1
 selector==0.8.11
 Paste==1.7.2
@@ -33,16 +33,14 @@ django-paging==0.2.2
 django-smartif==0.1
 djangowind==0.13.1
 sorl==3.1
-tagging==0.3-pre
 template_utils==0.4p2
 typogrify==1.0
 django-indexer==0.2.1
 django-statsd-mozilla==0.3.11
 django-nose==1.2
 raven==4.0.3
-South==0.8.4
-django-smoketest==0.2.2
+django-smoketest==0.3.0
 django-debug-toolbar==1.1
-django-jenkins==0.15.0
+django-jenkins==0.16.3
 django-databrowse==1.2
 gunicorn==19.1.1
