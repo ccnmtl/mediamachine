@@ -5,7 +5,7 @@
 	
   
 	
-  <link rel="stylesheet" href="/site_media/css/main.css" type="text/css">	
+  <link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css">	
  
 </head> 
  
@@ -20,7 +20,7 @@
  
 	<table border="0" cellspacing="0" cellpadding="0" width="625"> 
 	<tr> 
-	<td><img src="/site_media/img/splash_graphic.gif" width="560" height="67" border="0" alt="MEDIAMACHINE"></td> 
+	<td><img src="{{STATIC_URL}}img/splash_graphic.gif" width="560" height="67" border="0" alt="MEDIAMACHINE"></td> 
 	<td width="20" height="1"><spacer type="block" width="20" height="1"></td> 
 	<td width="45" height="1"><spacer type="block" width="45" height="1"></td> 
 	</tr> 
@@ -50,7 +50,7 @@ login through CAS with it</p>
       		
 	<tr> 
 	<td align="right"> 
-	<img src="/site_media/img/splash_userid.gif" width="58" height="9" border="0" alt="USER ID"> 
+	<img src="{{STATIC_URL}}img/splash_userid.gif" width="58" height="9" border="0" alt="USER ID"> 
 	&nbsp;&nbsp;&nbsp;
 {{ form.username }}
 	</td> 
@@ -64,12 +64,12 @@ login through CAS with it</p>
 			
 	<tr> 
 	<td align="right"> 
-	<img src="/site_media/img/splash_pass.gif" width="58" height="9" border="0" alt="PASSWORD"> 
+	<img src="{{STATIC_URL}}img/splash_pass.gif" width="58" height="9" border="0" alt="PASSWORD"> 
 	&nbsp;&nbsp;&nbsp;
 {{ form.password }}
 	</td> 
 	<td width="20" height="1"><spacer type="block" width="20" height="1"></td> 
-	<td width="45"><input type='image' name='LoginButton' value='LOGIN' src="/site_media/img/splash_login.gif" width="45" height="9" border="0" alt="LOGIN"></td> 
+	<td width="45"><input type='image' name='LoginButton' value='LOGIN' src="{{STATIC_URL}}img/splash_login.gif" width="45" height="9" border="0" alt="LOGIN"></td> 
 	</tr> 
 </form>  
 			

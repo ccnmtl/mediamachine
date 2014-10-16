@@ -1,14 +1,17 @@
+{% load compress %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>mediamachine: {% block title %}{% endblock %}</title>
-	<link rel="stylesheet" href="/site_media/css/main.css?site=mediamachine" media="screen" />
-	<link rel="stylesheet" href="/site_media/css/print.css" media="print" />
+{% compress css %}
+	<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" media="screen" />
+	<link rel="stylesheet" href="{{STATIC_URL}}css/print.css" media="print" />
 	<!--[if IE 6]>
-	<link rel="stylesheet" href="/site_media/css/main_ie6_1col.css" media="screen" />
+	<link rel="stylesheet" href="{{STATIC_URL}}css/main_ie6_1col.css" media="screen" />
 	<![endif]-->
-	<link rel="shortcut icon" href="/site_media/img/favicon.ico" type="image/x-icon" />
+{% endcompress %}
+	<link rel="shortcut icon" href="{{STATIC_URL}}img/favicon.ico" type="image/x-icon" />
 	{% block css %}{% endblock %}
 	{% block js %}{% endblock %}
 	{% block feeds %}{% endblock %}
@@ -29,7 +32,7 @@
 <!--begin color bars--> 
 <table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
 	<tr> 
-	<td height="45"><img src="/site_media/img/colors.gif" width="560" height="45" border="0"></td> 
+	<td height="45"><img src="{{STATIC_URL}}img/colors.gif" width="560" height="45" border="0"></td> 
 	</tr> 
 </table> 
 <!--end color bars--> 
@@ -37,7 +40,7 @@
 <!--begin logo and main navigation--> 
 <table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#333333"> 
 	<tr> 
-	<td nowrap width="207" height="25"><img src="/site_media/img/logo_mediamachine.gif" width="207" height="25" border="0"></td> 
+	<td nowrap width="207" height="25"><img src="{{STATIC_URL}}img/logo_mediamachine.gif" width="207" height="25" border="0"></td> 
 	<td width="100%"><br></td> 
 	<td nowrap width="510" height="25" align="right"> 
  
@@ -96,7 +99,7 @@
  
 		<table border="0" cellspacing="0" cellpadding="0" align="center"> 
 		<tr> 
-		<td width="70"><a href="http://ccnmtl.columbia.edu/"><img src="/site_media/img/logo_ccnmtl.gif" width="70" height="19" border="0"></a></td> 
+		<td width="70"><a href="http://ccnmtl.columbia.edu/"><img src="{{STATIC_URL}}img/logo_ccnmtl.gif" width="70" height="19" border="0"></a></td> 
 		<td width="20" height="20"><spacer type="block" width="20" height="20"></td> 
 		<td class="footer">Produced by the Columbia Center for New Media Teaching and Learning 2002</td> 
 		</tr> 

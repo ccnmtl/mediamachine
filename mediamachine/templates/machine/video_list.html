@@ -17,9 +17,9 @@
           <tr> 
           <td width="15"> 
 	    {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}"><input type="image" src="/site_media/img/arrow_left.gif" border="0"></a>
+            <a href="?page={{ page_obj.previous_page_number }}"><input type="image" src="{{STATIC_URL}}img/arrow_left.gif" border="0"></a>
 	    {% else %}
-              <input type="image" src="/site_media/img/arrow_leftoff.gif" border="0"> 
+              <input type="image" src="{{STATIC_URL}}img/arrow_leftoff.gif" border="0"> 
             {% endif %}
           </td> 
  
@@ -37,9 +37,9 @@
  
         <td width="15"> 
           {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}"><input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_right.gif" border="0"></a>
+          <a href="?page={{ page_obj.next_page_number }}"><input type="image" name="NextPage" value="Next Page" alt="Next Page" src="{{STATIC_URL}}img/arrow_right.gif" border="0"></a>
 	  {% else %}
-          <input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_rightoff.gif" border="0"> 
+          <input type="image" name="NextPage" value="Next Page" alt="Next Page" src="{{STATIC_URL}}img/arrow_rightoff.gif" border="0"> 
           {% endif %}
             
 
@@ -135,9 +135,9 @@
           <tr> 
           <td width="15"> 
 	    {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}"><input type="image" src="/site_media/img/arrow_left.gif" border="0"></a>
+            <a href="?page={{ page_obj.previous_page_number }}"><input type="image" src="{{STATIC_URL}}img/arrow_left.gif" border="0"></a>
 	    {% else %}
-              <input type="image" src="/site_media/img/arrow_leftoff.gif" border="0"> 
+              <input type="image" src="{{STATIC_URL}}img/arrow_leftoff.gif" border="0"> 
             {% endif %}
           </td> 
  
@@ -155,9 +155,9 @@
  
         <td width="15"> 
           {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}"><input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_right.gif" border="0"></a>
+          <a href="?page={{ page_obj.next_page_number }}"><input type="image" name="NextPage" value="Next Page" alt="Next Page" src="{{STATIC_URL}}img/arrow_right.gif" border="0"></a>
 	  {% else %}
-          <input type="image" name="NextPage" value="Next Page" alt="Next Page" src="/site_media/img/arrow_rightoff.gif" border="0"> 
+          <input type="image" name="NextPage" value="Next Page" alt="Next Page" src="{{STATIC_URL}}img/arrow_rightoff.gif" border="0"> 
           {% endif %}
             
 

@@ -69,6 +69,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.request',
+    'django.core.context_processors.static',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,7 +86,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mediamachine.urls'
 
 TEMPLATE_DIRS = (
-    "/var/www/mediamachine/templates/",
     os.path.join(os.path.dirname(__file__), "templates"),
 )
 
@@ -111,6 +111,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_jenkins',
     'gunicorn',
+    'compressor',
 ]
 
 INTERNAL_IPS = ('127.0.0.1', )
@@ -159,6 +160,17 @@ WIND_SUPERUSER_MAPPER_GROUPS = [
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 SESSION_COOKIE_HTTPONLY = True
+
+STATIC_ROOT = "/tmp/mediamachine/static"
+STATICFILES_DIRS = ("media/",)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_URL = "/media/"
+COMPRESS_ROOT = STATIC_ROOT
 
 LOGGING = {
     'version': 1,

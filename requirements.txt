@@ -23,7 +23,11 @@ logilab-common==0.59.0
 logilab-astng==0.24.1
 pylint==0.28.0
 sqlparse==0.1.11
+boto==2.31.1
+django-storages==1.1.8
 
+django-appconf==0.4.1
+django_compressor==1.4
 django-templatetag-sugar==0.1
 django-paging==0.2.2
 django-smartif==0.1
