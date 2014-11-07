@@ -1,4 +1,4 @@
-Django==1.7
+Django==1.7.1
 resolver==0.2.1
 selector==0.8.11
 Paste==1.7.2
@@ -31,7 +31,7 @@ django_compressor==1.4
 django-templatetag-sugar==0.1
 django-paging==0.2.2
 django-smartif==0.1
-djangowind==0.13.1
+djangowind==0.13.2
 sorl==3.1
 template_utils==0.4p2
 typogrify==1.0
