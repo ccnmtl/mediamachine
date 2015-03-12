@@ -37,7 +37,7 @@ typogrify==1.0
 django-indexer==0.2.1
 django-statsd-mozilla==0.3.11
 django-nose==1.2
-raven==4.0.3
+raven==5.1.1
 django-smoketest==0.3.0
 django-debug-toolbar==1.1
 django-jenkins==0.16.3
