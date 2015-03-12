@@ -25,7 +25,7 @@ boto==2.31.1
 python-dateutil==2.4.0
 django-storages==1.1.8
 
-django-appconf==0.4.1
+django-appconf==0.6
 django_compressor==1.4
 django-templatetag-sugar==0.1
 django-paging==0.2.2
