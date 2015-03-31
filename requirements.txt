@@ -35,7 +35,7 @@ django-statsd-mozilla==0.3.14
 django-nose==1.2
 raven==5.1.1
 django-smoketest==0.3.0
-django-debug-toolbar==1.1
+django-debug-toolbar==1.2.2
 django-jenkins==0.16.3
 django-databrowse==1.2
 gunicorn==19.1.1
