@@ -101,7 +101,6 @@ INSTALLED_APPS = [
     'django_databrowse',
     'django_statsd',
     'django_nose',
-    'raven.contrib.django',
     'smoketest',
     'debug_toolbar',
     'django_jenkins',
