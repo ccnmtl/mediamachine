@@ -42,12 +42,7 @@ PROJECT_APPS = [
     'mediamachine.machine',
 ]
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-package=mediamachine.machine',
-]
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
@@ -100,7 +95,6 @@ INSTALLED_APPS = [
     'mediamachine.machine',
     'django_databrowse',
     'django_statsd',
-    'django_nose',
     'smoketest',
     'debug_toolbar',
     'django_jenkins',
