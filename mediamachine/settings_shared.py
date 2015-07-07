@@ -89,7 +89,6 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'template_utils',
     'mediamachine.machine',
     'django_databrowse',
     'django_statsd',
