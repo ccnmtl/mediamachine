@@ -91,7 +91,6 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'django.contrib.admin',
     'template_utils',
-    'typogrify',
     'mediamachine.machine',
     'django_databrowse',
     'django_statsd',
