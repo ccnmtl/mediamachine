@@ -88,7 +88,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.staticfiles',
-    'sorl.thumbnail',
     'django.contrib.admin',
     'template_utils',
     'typogrify',
