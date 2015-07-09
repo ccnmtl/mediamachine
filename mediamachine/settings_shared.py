@@ -90,7 +90,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'template_utils',
-    'typogrify',
     'mediamachine.machine',
     'django_databrowse',
     'django_statsd',
