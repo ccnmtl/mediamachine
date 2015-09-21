@@ -2,12 +2,12 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 import django_databrowse
-admin.autodiscover()
 from mediamachine.machine.models import Video, Theme, Keyword
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+admin.autodiscover()
 
 
 urlpatterns = patterns(
