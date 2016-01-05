@@ -35,7 +35,7 @@ django-debug-toolbar==1.4
 django-jenkins==0.17.0
 django-databrowse==1.2
 gunicorn==19.3.0
-django-impersonate==0.9.1
+django-impersonate==0.9.2
 django-waffle==0.10.1
 django-markwhat==1.4
 django-stagingcontext==0.1.0
