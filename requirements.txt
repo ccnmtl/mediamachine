@@ -25,7 +25,7 @@ BeautifulSoup==3.2.1
 cssselect==0.9.1
 lxml==3.5.0
 
-django-appconf==1.0.1
+django-appconf==1.0.2
 rcssmin==1.0.6  # django-compressor
 rjsmin==1.0.12  # django-compressor
 django-compressor==2.0
