@@ -1,11 +1,13 @@
+{% load compress %}
 <html> 
 <head> 
  
   <title>MEDIAMACHINE>> | Log In</title> 
 	
   
-	
-  <link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css">	
+{% compress css %}	
+  <link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css">
+{% endcompress %}
  
 </head> 
  
