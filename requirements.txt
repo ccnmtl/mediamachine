@@ -46,4 +46,6 @@ django-markwhat==1.5
 django-stagingcontext==0.1.0
 django-ga-context==0.1.0
 django-cacheds3storage==0.1.2
+django-smtp-ssl==1.0
+
 ccnmtlsettings==0.3.0
