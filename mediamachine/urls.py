@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, include, url
+import django_databrowse
+import django.views.static
+
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
-import django_databrowse
 from mediamachine.machine.models import Video, Theme, Keyword
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
@@ -10,10 +12,9 @@ from django.views.generic.detail import DetailView
 admin.autodiscover()
 
 
-urlpatterns = patterns(
-    '',
-    ('^accounts/', include('djangowind.urls')),
-    ('^$', login_required(
+urlpatterns = [
+    url('^accounts/', include('djangowind.urls')),
+    url('^$', login_required(
         TemplateView.as_view(
             template_name="machine/index.html"))),
     url('^video/$',
@@ -68,11 +69,11 @@ urlpatterns = patterns(
         ),
         name='keyword_detail'),
 
-    (r'^databrowse/(.*)', login_required(django_databrowse.site.root)),
-    (r'^admin/', include(admin.site.urls)),
-    (r'^stats/$', TemplateView.as_view(template_name="stats.html")),
-    (r'^smoketest/', include('smoketest.urls')),
-    (r'^uploads/(?P<path>.*)$',
-     'django.views.static.serve',
-     {'document_root': settings.MEDIA_ROOT}),
-)
+    url(r'^databrowse/(.*)', login_required(django_databrowse.site.root)),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^stats/$', TemplateView.as_view(template_name="stats.html")),
+    url(r'^smoketest/', include('smoketest.urls')),
+    url(r'^uploads/(?P<path>.*)$',
+        django.views.static.serve,
+        {'document_root': settings.MEDIA_ROOT}),
+]
