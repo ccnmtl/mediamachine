@@ -32,7 +32,7 @@ django-appconf==1.0.2
 rcssmin==1.0.6  # django-compressor
 rjsmin==1.0.12  # django-compressor
 django-compressor==2.1
-djangowind==0.15.0
+djangowind==0.16.0
 sorl==3.1
 typogrify==2.0.7
 django-statsd-mozilla==0.3.16
