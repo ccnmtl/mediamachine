@@ -14,7 +14,7 @@ enum34==1.1.6
 configparser==3.5.0
 flake8==3.3.0
 logilab-astng==0.24.3
-pylint==1.6.5
+pylint==1.7.0
 sqlparse==0.2.3
 boto==2.46.1
 python-dateutil==2.6.0
