@@ -1,0 +1,13 @@
+db:
+  image: postgres
+web:
+  image: ccnmtl/mediamachine
+  command: manage runserver 0.0.0.0:8000
+  environment:
+    - SETTINGS=settings_compose
+  volumes:
+    - .:/var/www/mediamachine/mediamachine
+  ports:
+    - "8000:8000"
+  links:
+    - db
